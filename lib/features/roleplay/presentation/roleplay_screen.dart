@@ -12,21 +12,21 @@ class RoleplayScenario {
   final List<DialogueStep> steps;
 
   const RoleplayScenario({
-    required this.id,
-    required this.titleTr,
-    required this.titleEn,
-    required this.emoji,
-    required this.level,
-    required this.themeColor,
-    required this.description,
-    required this.steps,
+    @required this.id,
+    @required this.titleTr,
+    @required this.titleEn,
+    @required this.emoji,
+    @required this.level,
+    @required this.themeColor,
+    @required this.description,
+    @required this.steps,
   });
 }
 
 class RoleplayScreen extends StatelessWidget {
-  const RoleplayScreen({Key? key}) : super(key: key);
+  const RoleplayScreen();
 
-  static const List<RoleplayScenario> scenarios = [
+  static const List<RoleplayScenario> scenarios = <RoleplayScenario>[
     RoleplayScenario(
       id: "cafe",
       titleTr: "Kahve Siparişi",
@@ -35,14 +35,14 @@ class RoleplayScreen extends StatelessWidget {
       level: "A1 - Başlangıç",
       themeColor: Color(0xFFE07A5F),
       description: "Garson ile selamlaşın, en sevdiğiniz kahveyi ve tatlıyı sipariş edin.",
-      steps: [
+      steps: <DialogueStep>[
         DialogueStep(
           partnerSpeaker: "Panda Barista 🐼",
           partnerMessage: "Hello! Welcome to Panda Café. What can I get for you today?",
           partnerMessageTr: "Merhaba! Panda Kafe'ye hoş geldiniz. Bugün size ne getirebilirim?",
           expectedUserResponse: "Hi! I would like a cappuccino and a croissant, please.",
           expectedUserResponseTr: "Merhaba! Bir kapuçino ve bir kruvasan rica ediyorum.",
-          userKeywords: ["hi", "cappuccino", "croissant", "please"],
+          userKeywords: <String>["hi", "cappuccino", "croissant", "please"],
         ),
         DialogueStep(
           partnerSpeaker: "Panda Barista 🐼",
@@ -50,7 +50,7 @@ class RoleplayScreen extends StatelessWidget {
           partnerMessageTr: "Harika seçim! Normal süt mü yoksa yulaf sütü mü istersiniz?",
           expectedUserResponse: "Oat milk, please. How much is it?",
           expectedUserResponseTr: "Yulaf sütü lütfen. Ne kadar tutuyor?",
-          userKeywords: ["oat", "milk", "please", "how", "much"],
+          userKeywords: <String>["oat", "milk", "please", "how", "much"],
         ),
         DialogueStep(
           partnerSpeaker: "Panda Barista 🐼",
@@ -58,7 +58,7 @@ class RoleplayScreen extends StatelessWidget {
           partnerMessageTr: "Toplam 5 dolar. Kartınızı buraya dokundurabilirsiniz.",
           expectedUserResponse: "Here you go. Thank you so much!",
           expectedUserResponseTr: "Buyrun. Çok teşekkür ederim!",
-          userKeywords: ["here", "you", "go", "thank", "you"],
+          userKeywords: <String>["here", "you", "go", "thank", "you"],
         ),
       ],
     ),
@@ -70,14 +70,14 @@ class RoleplayScreen extends StatelessWidget {
       level: "A2 - Temel",
       themeColor: Color(0xFF3D5A80),
       description: "Otele vardığınızda rezervasyonunuzu doğrulayın ve oda anahtarınızı alın.",
-      steps: [
+      steps: <DialogueStep>[
         DialogueStep(
           partnerSpeaker: "Panda Resepsiyonist 🐼",
           partnerMessage: "Good evening! Welcome to the Grand Panda Hotel. Do you have a reservation?",
           partnerMessageTr: "İyi akşamlar! Grand Panda Otele hoş geldiniz. Rezervasyonunuz var mı?",
           expectedUserResponse: "Yes, I have a reservation under the name Ceylan.",
           expectedUserResponseTr: "Evet, Ceylan adına bir rezervasyonum var.",
-          userKeywords: ["yes", "reservation", "under", "name"],
+          userKeywords: <String>["yes", "reservation", "under", "name"],
         ),
         DialogueStep(
           partnerSpeaker: "Panda Resepsiyonist 🐼",
@@ -85,7 +85,7 @@ class RoleplayScreen extends StatelessWidget {
           partnerMessageTr: "Buldum! 3 gecelik lüks oda. İşte 402 numaralı oda için anahtar kartınız.",
           expectedUserResponse: "Thank you. What time is breakfast served in the morning?",
           expectedUserResponseTr: "Teşekkürler. Sabah kahvaltısı saat kaçta servis ediliyor?",
-          userKeywords: ["thank", "what", "time", "breakfast"],
+          userKeywords: <String>["thank", "what", "time", "breakfast"],
         ),
       ],
     ),
@@ -97,14 +97,14 @@ class RoleplayScreen extends StatelessWidget {
       level: "A2 - Pratik",
       themeColor: Color(0xFF2A9D8F),
       description: "Uçağınızın kalkış kapısını ve biniş saatini görevliye sorun.",
-      steps: [
+      steps: <DialogueStep>[
         DialogueStep(
           partnerSpeaker: "Panda Görevli 🐼",
           partnerMessage: "Hello! May I see your passport and boarding pass, please?",
           partnerMessageTr: "Merhaba! Pasaportunuzu ve biniş kartınızı görebilir miyim lütfen?",
           expectedUserResponse: "Sure, here is my boarding pass for flight TK 102.",
           expectedUserResponseTr: "Elbette, işte TK 102 sefer sayılı uçuşum için biniş kartım.",
-          userKeywords: ["sure", "here", "boarding", "pass", "flight"],
+          userKeywords: <String>["sure", "here", "boarding", "pass", "flight"],
         ),
         DialogueStep(
           partnerSpeaker: "Panda Görevli 🐼",
@@ -112,7 +112,7 @@ class RoleplayScreen extends StatelessWidget {
           partnerMessageTr: "Teşekkürler. Kapınız B14 olarak değişti. Biniş 20 dakika içinde başlıyor.",
           expectedUserResponse: "Got it! Which way is Gate B14?",
           expectedUserResponseTr: "Anladım! B14 kapısı ne tarafta kalıyor?",
-          userKeywords: ["which", "way", "gate"],
+          userKeywords: <String>["which", "way", "gate"],
         ),
       ],
     ),
@@ -124,14 +124,14 @@ class RoleplayScreen extends StatelessWidget {
       level: "A1 - Başlangıç",
       themeColor: Color(0xFFF4A261),
       description: "Kendinizi tanıtın, nereli olduğunuzu ve neler yaptığınızı paylaşın.",
-      steps: [
+      steps: <DialogueStep>[
         DialogueStep(
           partnerSpeaker: "Panda Arkadaş 🐼",
           partnerMessage: "Hi there! I'm Panda. It's really nice to meet you. Where are you from?",
           partnerMessageTr: "Selam! Ben Panda. Seninle tanıştığıma çok memnun oldum. Nerelisin?",
           expectedUserResponse: "Nice to meet you too! I am from Istanbul, Turkey.",
           expectedUserResponseTr: "Ben de tanıştığıma sevindim! Ben İstanbul, Türkiye'denim.",
-          userKeywords: ["nice", "meet", "you", "from", "turkey"],
+          userKeywords: <String>["nice", "meet", "you", "from", "turkey"],
         ),
         DialogueStep(
           partnerSpeaker: "Panda Arkadaş 🐼",
@@ -139,7 +139,7 @@ class RoleplayScreen extends StatelessWidget {
           partnerMessageTr: "İstanbul çok güzel bir şehir! Boş zamanlarında ne yapmaktan hoşlanırsın?",
           expectedUserResponse: "I love reading books, traveling, and learning new languages.",
           expectedUserResponseTr: "Kitap okumayı, seyahat etmeyi ve yeni diller öğrenmeyi severim.",
-          userKeywords: ["love", "reading", "traveling", "learning", "languages"],
+          userKeywords: <String>["love", "reading", "traveling", "learning", "languages"],
         ),
       ],
     ),
@@ -149,12 +149,12 @@ class RoleplayScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-      children: [
+      children: <Widget>[
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             gradient: const LinearGradient(
-              colors: [Color(0xFF58CC02), Color(0xFF2E7D32)],
+              colors: <Color>[Color(0xFF58CC02), Color(0xFF2E7D32)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -168,13 +168,13 @@ class RoleplayScreen extends StatelessWidget {
             ],
           ),
           child: Row(
-            children: [
+            children: <Widget>[
               const Text("🐼", style: TextStyle(fontSize: 48)),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: const <Widget>[
                     Text(
                       "Panda ile Canlı Diyalog",
                       style: TextStyle(
@@ -234,7 +234,7 @@ class RoleplayScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (_) => DialogueSessionScreen(scenario: scenario),
               ),
             );
@@ -242,7 +242,7 @@ class RoleplayScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
-              children: [
+              children: <Widget>[
                 Container(
                   width: 56,
                   height: 56,
@@ -257,9 +257,9 @@ class RoleplayScreen extends StatelessWidget {
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       Row(
-                        children: [
+                        children: <Widget>[
                           Expanded(
                             child: Text(
                               scenario.titleTr,

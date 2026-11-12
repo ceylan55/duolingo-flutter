@@ -12,19 +12,19 @@ class DialogueStep {
   final List<String> userKeywords;
 
   const DialogueStep({
-    required this.partnerSpeaker,
-    required this.partnerMessage,
-    required this.partnerMessageTr,
-    required this.expectedUserResponse,
-    required this.expectedUserResponseTr,
-    required this.userKeywords,
+    @required this.partnerSpeaker,
+    @required this.partnerMessage,
+    @required this.partnerMessageTr,
+    @required this.expectedUserResponse,
+    @required this.expectedUserResponseTr,
+    @required this.userKeywords,
   });
 }
 
 class DialogueSessionScreen extends StatefulWidget {
   final RoleplayScenario scenario;
 
-  const DialogueSessionScreen({Key? key, required this.scenario}) : super(key: key);
+  const DialogueSessionScreen({@required this.scenario});
 
   @override
   _DialogueSessionScreenState createState() => _DialogueSessionScreenState();
@@ -36,7 +36,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
   bool _hasSpoken = false;
   int _scorePercent = 0;
   bool _showTranslation = false;
-  Timer? _recordingTimer;
+  Timer _recordingTimer;
 
   DialogueStep get _currentStep => widget.scenario.steps[_currentStepIndex];
 
@@ -46,7 +46,9 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
       _hasSpoken = false;
     });
 
-    _recordingTimer?.cancel();
+    if (_recordingTimer != null) {
+      _recordingTimer.cancel();
+    }
     _recordingTimer = Timer(const Duration(milliseconds: 1800), () {
       if (!mounted) return;
       setState(() {
@@ -78,7 +80,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
       builder: (ctx) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Column(
-          children: const [
+          children: const <Widget>[
             Text("🎉", style: TextStyle(fontSize: 48)),
             SizedBox(height: 8),
             Text(
@@ -89,7 +91,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: <Widget>[
             Text(
               "${widget.scenario.titleTr} diyalogunu başarıyla tamamladınız!",
               textAlign: TextAlign.center,
@@ -104,7 +106,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: const <Widget>[
                   Text("⭐ +35 XP", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF46A302))),
                   SizedBox(width: 16),
                   Text("🔥 Streak Devam", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFFFF9600))),
@@ -113,7 +115,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
             ),
           ],
         ),
-        actions: [
+        actions: <Widget>[
           PrimaryButton(
             "TAMAMLA",
             onPressed: () {
@@ -128,7 +130,9 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
 
   @override
   void dispose() {
-    _recordingTimer?.cancel();
+    if (_recordingTimer != null) {
+      _recordingTimer.cancel();
+    }
     super.dispose();
   }
 
@@ -156,7 +160,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
             valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF58CC02)),
           ),
         ),
-        actions: [
+        actions: <Widget>[
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             alignment: Alignment.center,
@@ -168,15 +172,15 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
         ],
       ),
       body: Column(
-        children: [
+        children: <Widget>[
           Expanded(
             child: ListView(
               padding: const EdgeInsets.all(20),
-              children: [
+              children: <Widget>[
                 // Partner (Panda) Konuşması
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Container(
                       width: 52,
                       height: 52,
@@ -210,9 +214,9 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: <Widget>[
                             Row(
-                              children: [
+                              children: <Widget>[
                                 Text(
                                   step.partnerSpeaker,
                                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Color(0xFF58CC02)),
@@ -226,7 +230,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
                               step.partnerMessage,
                               style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: Color(0xFF2B2B2B)),
                             ),
-                            if (_showTranslation) ...[
+                            if (_showTranslation) ...<Widget>[
                               const SizedBox(height: 6),
                               Text(
                                 step.partnerMessageTr,
@@ -280,7 +284,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       Text(
                         step.expectedUserResponse,
                         style: TextStyle(
@@ -294,10 +298,10 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
                         step.expectedUserResponseTr,
                         style: TextStyle(fontSize: 14, color: Colors.grey.shade600),
                       ),
-                      if (_hasSpoken) ...[
+                      if (_hasSpoken) ...<Widget>[
                         const Divider(height: 24),
                         Row(
-                          children: [
+                          children: <Widget>[
                             const Icon(Icons.check_circle, color: Color(0xFF58CC02), size: 24),
                             const SizedBox(width: 8),
                             Text(
@@ -329,7 +333,7 @@ class _DialogueSessionScreenState extends State<DialogueSessionScreen> {
                     )
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: <Widget>[
                         GestureDetector(
                           onTap: _isListening ? null : _startVoiceAnalysis,
                           child: AnimatedContainer(
