@@ -52,11 +52,9 @@ google-services.json
 key.properties
 
 # Android related
-**/android/**/gradle-wrapper.jar
+# (gradlew and wrapper are required for CI builds)
 **/android/.gradle
 **/android/captures/
-**/android/gradlew
-**/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 /android/app/debug
