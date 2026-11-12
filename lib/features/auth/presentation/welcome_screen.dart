@@ -25,7 +25,7 @@ class WelcomeScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 22),
                           Text(
-                            "Aprenda idiomas de graça. Agora e sempre.",
+                            "Ücretsiz dil öğrenin. Şimdi ve daima.",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 26,
@@ -38,12 +38,12 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 PrimaryButton(
-                  "COMEÇAR AGORA",
+                  "HEMEN BAŞLA",
                   onPressed: () => HomeShell.open(context),
                 ),
                 const SizedBox(height: 12),
                 PrimaryButton(
-                  "JÁ TENHO UMA CONTA",
+                  "ZATEN BİR HESABIM VAR",
                   color: Colors.white,
                   textColor: Colors.green,
                   onPressed: () => Navigator.of(context).push(

@@ -15,19 +15,19 @@ class ProfileScreen extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Expanded(child: Text("Aprendiz", style: _titleStyle)),
+              const Expanded(child: Text("Öğrenci", style: _titleStyle)),
               ClipOval(
                 child: Image.asset(
                   "assets/images/logo-with-duo.png",
                   width: 96,
                   height: 96,
-                  semanticLabel: "Foto de perfil",
+                  semanticLabel: "Profil fotoğrafı",
                 ),
               ),
             ],
           ),
           const Divider(height: 32),
-          const Text("Sobre", style: _titleStyle),
+          const Text("İstatistikler", style: _titleStyle),
           const SizedBox(height: 8),
           GridView.count(
             crossAxisCount: 2,
@@ -38,18 +38,18 @@ class ProfileScreen extends StatelessWidget {
               const _StatCard(
                 Icon(Icons.bolt, color: Colors.amber, size: 32),
                 demoXp,
-                "XP total",
+                "Toplam XP",
               ),
-              _StatCard(_statImage("navbar_fire"), demoStreak, "Ofensiva"),
-              _StatCard(_statImage("crown_stroke"), demoCrowns, "Coroas"),
-              _StatCard(_statImage("navbar_diamont"), demoGems, "Gemas"),
+              _StatCard(_statImage("navbar_fire"), demoStreak, "Günlük Seri"),
+              _StatCard(_statImage("crown_stroke"), demoCrowns, "Taçlar"),
+              _StatCard(_statImage("navbar_diamont"), demoGems, "Elmaslar"),
             ],
           ),
           const SizedBox(height: 30),
-          const Text("Amigos", style: _titleStyle),
+          const Text("Arkadaşlar", style: _titleStyle),
           const SizedBox(height: 8),
           Text(
-            "Você ainda não tem amigos por aqui.",
+            "Henüz burada bir arkadaşınız yok.",
             style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
           ),
         ],

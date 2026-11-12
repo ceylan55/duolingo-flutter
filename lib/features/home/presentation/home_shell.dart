@@ -1,6 +1,7 @@
 import 'package:duolingo/features/home/presentation/stats_app_bar.dart';
 import 'package:duolingo/features/lessons/presentation/lessons_screen.dart';
 import 'package:duolingo/features/profile/presentation/profile_screen.dart';
+import 'package:duolingo/features/roleplay/presentation/roleplay_screen.dart';
 import 'package:duolingo/shared/widgets/coming_soon.dart';
 import 'package:flutter/material.dart';
 
@@ -17,11 +18,11 @@ class _Tab {
 }
 
 const List<_Tab> _tabs = <_Tab>[
-  _Tab("Lições", "lessons", LessonsScreen()),
-  _Tab("Histórias", "stories", ComingSoon("Histórias")),
-  _Tab("Perfil", "profile", ProfileScreen()),
-  _Tab("Ranking", "ranking", ComingSoon("Ranking")),
-  _Tab("Loja", "store", ComingSoon("Loja")),
+  _Tab("Dersler", "lessons", LessonsScreen()),
+  _Tab("Diyalog", "stories", RoleplayScreen()),
+  _Tab("Profil", "profile", ProfileScreen()),
+  _Tab("Sıralama", "ranking", ComingSoon("Sıralama")),
+  _Tab("Mağaza", "store", ComingSoon("Mağaza")),
 ];
 
 class HomeShell extends StatefulWidget {

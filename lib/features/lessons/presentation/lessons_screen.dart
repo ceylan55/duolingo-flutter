@@ -5,24 +5,27 @@ import 'package:flutter/material.dart';
 void _showIntroduction(BuildContext context) {
   showModalBottomSheet<void>(
     context: context,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
     builder: (sheetContext) => Padding(
       padding: const EdgeInsets.all(24),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const Text(
-            "Introdução",
+            "Temeller 1 🟢",
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           Text(
-            "Esta lição estará disponível em breve.",
+            "Temel selamlaşmalar, nezaket ifadeleri ve basit cümle yapıları ile İngilizceye ilk adımı atın.",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
           ),
           const SizedBox(height: 24),
           PrimaryButton(
-            "ENTENDI",
+            "ANLADIM, BAŞLA",
             onPressed: () => Navigator.of(sheetContext).pop(),
           ),
         ],
@@ -33,15 +36,15 @@ void _showIntroduction(BuildContext context) {
 
 const List<List<LessonBubble>> _rows = <List<LessonBubble>>[
   <LessonBubble>[
-    LessonBubble("Introdução", "egg", onTap: _showIntroduction),
+    LessonBubble("Temeller", "egg", onTap: _showIntroduction),
   ],
   <LessonBubble>[
-    LessonBubble("Saudações", "dialog"),
-    LessonBubble("Viagem", "airplane"),
+    LessonBubble("Selamlaşma", "dialog"),
+    LessonBubble("Seyahat", "airplane"),
   ],
   <LessonBubble>[
-    LessonBubble("Cafeteria", "hamburger"),
-    LessonBubble("Famílias", "baby"),
+    LessonBubble("Kafe & Yemek", "hamburger"),
+    LessonBubble("Aile", "baby"),
   ],
 ];
 
