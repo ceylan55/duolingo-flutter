@@ -200,15 +200,15 @@ class LessonsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<List<Widget>> rows = <List<Widget>>[
       <Widget>[
-        LessonBubble("Temeller", "egg", onTap: () => _openLesson(context, _basicsLesson)),
+        LessonBubble("Temeller", "egg", onTap: (ctx) => _openLesson(ctx, _basicsLesson)),
       ],
       <Widget>[
-        LessonBubble("Selamlaşma", "dialog", onTap: () => _openLesson(context, _greetingsLesson)),
-        LessonBubble("Seyahat", "airplane", onTap: () => _openLesson(context, _travelLesson)),
+        LessonBubble("Selamlaşma", "dialog", onTap: (ctx) => _openLesson(ctx, _greetingsLesson)),
+        LessonBubble("Seyahat", "airplane", onTap: (ctx) => _openLesson(ctx, _travelLesson)),
       ],
       <Widget>[
-        LessonBubble("Kafe & Yemek", "hamburger", onTap: () => _openLesson(context, _foodLesson)),
-        LessonBubble("Aile", "baby", onTap: () => _openLesson(context, _familyLesson)),
+        LessonBubble("Kafe & Yemek", "hamburger", onTap: (ctx) => _openLesson(ctx, _foodLesson)),
+        LessonBubble("Aile", "baby", onTap: (ctx) => _openLesson(ctx, _familyLesson)),
       ],
     ];
 
