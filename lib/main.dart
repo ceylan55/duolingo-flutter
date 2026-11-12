@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: "Duolingo",
+        title: "Pipi Talk",
         theme: appTheme,
         home: const WelcomeScreen(),
       );

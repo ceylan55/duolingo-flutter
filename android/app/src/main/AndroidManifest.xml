@@ -3,7 +3,7 @@
 
     <application
         android:name="${applicationName}"
-        android:label="duolingo"
+        android:label="Pipi"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

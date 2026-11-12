@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build Pipi Talk (APK & Play Store AAB)
 
 on:
   push:
@@ -37,11 +37,20 @@ jobs:
       - name: Make Gradle Wrapper Executable
         run: chmod +x android/gradlew
 
-      - name: Build APK
+      - name: Build APK (Direct Install)
         run: flutter build apk --release -v
+
+      - name: Build App Bundle (Google Play Store AAB)
+        run: flutter build appbundle --release -v
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: duolingo-apk
+          name: pipitalk-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload Play Store AAB Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipitalk-playstore-aab
+          path: build/app/outputs/bundle/release/app-release.aab
